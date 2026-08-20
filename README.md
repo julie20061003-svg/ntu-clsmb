@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>國立臺灣大學 醫技系 畢業學分與通識領域追蹤系統</title>
+  <title>國立臺灣大學 醫技系 畢業學分追蹤系統</title>
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- Firebase SDK -->
@@ -21,7 +21,7 @@
           114 學年度入學學生適用
         </div>
         <h1 class="text-2xl font-bold text-slate-900">國立臺灣大學 醫學檢驗暨生物技術學學系</h1>
-        <p class="text-slate-500 text-sm mt-0.5">畢業學分門檻、99系必修勾選與通識領域多選認證</p>
+        <p class="text-slate-500 text-sm mt-0.5">畢業學分門檻、系必修勾選與體育/服務課追蹤</p>
       </div>
 
       <!-- Google 帳號控制區 -->
@@ -42,14 +42,16 @@
       </div>
     </header>
 
-    <!-- 修課規定提示 Banner -->
-    <div class="bg-amber-50 border border-amber-200 text-amber-900 p-4 rounded-xl text-xs sm:text-sm space-y-1">
+    <!-- 修課規定特別註明 Banner -->
+    <div class="bg-amber-50 border border-amber-200 text-amber-900 p-4 rounded-xl text-xs sm:text-sm space-y-1.5">
       <div class="font-bold text-amber-950 flex items-center gap-1">
-        <span>📜</span> 臺大醫技系通識採計規定提醒：
+        <span>📌</span> 臺大醫技系特別修課規定：
       </div>
-      <ul class="list-disc list-inside space-y-0.5 text-amber-800 pl-1">
-        <li><b>醫技系指定通識領域：</b> A1 (文學與藝術)、A2 (歷史思維)、A3 (哲學與道德)、A4 (公民意識)、A5 (量化分析)。</li>
-        <li><b>超修採計規則：</b> 超修之通識課程（A1~A8 領域，<b>無 * 兼充者</b>），將自動計入選修學分採計。</li>
+      <ul class="list-disc list-inside space-y-1 text-amber-900 pl-1 font-medium">
+        <li><b class="text-rose-700">服務課（甲）（乙）：</b>應必修，但 0 學分。</li>
+        <li><b class="text-rose-700">體育課程：</b>體育應必修 4 學分，但不計入畢業總學分數內。</li>
+        <li><b>醫技系指定通識領域：</b>A1 (文學藝術)、A2 (歷史思維)、A3 (哲學道德)、A4 (公民意識)、A5 (量化分析)。</li>
+        <li><b>通識超修採計：</b>超修之通識課程（A1~A8 領域，無 * 兼充者），自動採計為畢業選修學分。</li>
       </ul>
     </div>
 
@@ -103,15 +105,18 @@
           <div class="text-lg font-bold text-purple-700">+ <span id="cat-earned-excess">0</span> 學分</div>
           <div class="text-xs text-purple-600/80">自動採計為畢業選修</div>
         </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-1">
-          <div class="text-xs font-bold text-slate-500">自由選修 (不含超修)</div>
-          <div class="text-lg font-bold text-slate-800"><span id="cat-earned-ele">0</span> / 5</div>
-          <div class="text-xs text-slate-400">基本選修門檻</div>
+        
+        <!-- 體育與服務學習專屬統計卡片 -->
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm space-y-1">
+          <div class="text-xs font-bold text-slate-600">體育 & 服務學習 (必修)</div>
+          <div class="text-xs font-semibold text-slate-800">體育：<span id="cat-earned-pe" class="text-blue-600 text-sm font-bold">0</span> / 4 學分</div>
+          <div class="text-xs font-semibold text-slate-800">服務：<span id="cat-earned-srv" class="text-emerald-600 text-sm font-bold">0</span> / 2 門</div>
+          <div class="text-[10px] text-slate-400">不計入 128 畢業總學分</div>
         </div>
       </div>
     </section>
 
-    <!-- 共同必修 + 通識：雙修法與超修對照卡片 -->
+    <!-- 共同必修 + 通識：雙修法對照卡片 -->
     <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-5">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b pb-3">
         <div>
@@ -195,12 +200,12 @@
 
     <!-- 主區塊 -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      <!-- 左側：系訂必修 99 學分勾選區 -->
+      <!-- 左側：必修 / 體育 / 服務學習 勾選區 -->
       <div class="lg:col-span-6 space-y-4">
         <section class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 space-y-3">
           <div class="flex justify-between items-center border-b pb-2">
-            <h2 class="font-bold text-slate-800 text-base">☑️ 系訂必修點選完成 (99學分)</h2>
-            <span class="text-xs text-slate-500" id="req-completion-count">已完成 0 / 49 科目</span>
+            <h2 class="font-bold text-slate-800 text-base">☑️ 必修與體育服務點選完成</h2>
+            <span class="text-xs text-slate-500" id="req-completion-count">已完成 0 / 55 科目</span>
           </div>
           <div class="flex gap-1 bg-slate-100 p-1 rounded-lg text-xs font-medium">
             <button onclick="filterGrade('all')" id="tab-all" class="flex-1 py-1 rounded-md bg-white shadow-sm text-slate-800 font-semibold">全部</button>
@@ -209,11 +214,11 @@
             <button onclick="filterGrade('大三')" id="tab-大三" class="flex-1 py-1 rounded-md text-slate-500 hover:text-slate-800">大三</button>
             <button onclick="filterGrade('大四')" id="tab-大四" class="flex-1 py-1 rounded-md text-slate-500 hover:text-slate-800">大四</button>
           </div>
-          <div class="space-y-1.5 max-h-[500px] overflow-y-auto pr-1 text-sm" id="required-courses-list"></div>
+          <div class="space-y-1.5 max-h-[520px] overflow-y-auto pr-1 text-sm" id="required-courses-list"></div>
         </section>
       </div>
 
-      <!-- 右側：共同 / 通識 / 選修 / 體育紀錄區 -->
+      <!-- 右側：共同 / 通識 / 選修紀錄區 -->
       <div class="lg:col-span-6 space-y-6">
         <section class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 space-y-4">
           <h2 class="font-bold text-slate-800 text-base border-b pb-2">➕ 新增共同 / 通識 / 選修紀錄</h2>
@@ -227,6 +232,7 @@
               <input type="text" id="sem-course-name" placeholder="科目名稱" required class="w-full px-3 py-1.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
             </div>
             
+            <!-- 整數學分數選單 -->
             <div class="col-span-4 sm:col-span-2">
               <label class="block text-xs text-slate-500 mb-1">學分數</label>
               <select id="sem-credit" class="w-full px-2 py-1.5 border rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none text-xs">
@@ -250,7 +256,7 @@
               </select>
             </div>
 
-            <!-- 通識領域下拉式複選選單區塊 -->
+            <!-- 通識領域下拉式複選選單 -->
             <div id="domain-wrapper" class="col-span-12 hidden bg-purple-50/80 p-3.5 rounded-xl border border-purple-200 space-y-2">
               <div class="flex justify-between items-center">
                 <label class="block text-xs font-bold text-purple-900">🎯 請選擇通識領域分類（可複選，雙領域兼充）：</label>
@@ -304,10 +310,6 @@
                   </label>
                 </div>
               </div>
-
-              <div class="text-[11px] text-purple-800/80 leading-relaxed">
-                💡 <b>註：</b>超修且<b>無 * 號</b>之通識課程（A1~A8），系統將自動為你採計至選修學分中。
-              </div>
             </div>
 
             <div class="col-span-12 flex justify-end">
@@ -327,14 +329,13 @@
   </div>
 
   <script>
-    // 專屬 Firebase 金鑰設定（已自動整合）
     const firebaseConfig = {
-      apiKey: "AIzaSyA7Dub8Zj8s8Ql1Zj1cvICa5tJv9I20aDQ",
-      authDomain: "ntu-clsmb.firebaseapp.com",
-      projectId: "ntu-clsmb",
-      storageBucket: "ntu-clsmb.firebasestorage.app",
-      messagingSenderId: "438474755148",
-      appId: "1:438474755148:web:1f8ebf3c1caca191c978e9"
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
     };
 
     let currentUser = null;
@@ -347,7 +348,12 @@
       db = firebase.firestore();
     }
 
+    // 必修清單：含 49 門系必修、4 門體育、2 門服務學習
     const requiredCoursesList = [
+      // 大一
+      { id: 'req-srv1', name: '服務學習甲', credit: 0, grade: '大一', isService: true },
+      { id: 'req-pe1', name: '體育一', credit: 1, grade: '大一', isPE: true },
+      { id: 'req-pe2', name: '體育二', credit: 1, grade: '大一', isPE: true },
       { id: 'req-1', name: '普通化學丙', credit: 3, grade: '大一' },
       { id: 'req-2', name: '普通化學實驗', credit: 1, grade: '大一' },
       { id: 'req-3', name: '普通生物學', credit: 3, grade: '大一' },
@@ -358,6 +364,10 @@
       { id: 'req-8', name: '分析化學實驗', credit: 1, grade: '大一' },
       { id: 'req-9', name: '有機化學', credit: 3, grade: '大一' },
       { id: 'req-10', name: '有機化學實驗', credit: 1, grade: '大一' },
+      // 大二
+      { id: 'req-srv2', name: '服務學習乙', credit: 0, grade: '大二', isService: true },
+      { id: 'req-pe3', name: '體育三', credit: 1, grade: '大二', isPE: true },
+      { id: 'req-pe4', name: '體育四', credit: 1, grade: '大二', isPE: true },
       { id: 'req-11', name: '生物化學', credit: 4, grade: '大二' },
       { id: 'req-12', name: '解剖學', credit: 3, grade: '大二' },
       { id: 'req-13', name: '生理學', credit: 4, grade: '大二' },
@@ -365,6 +375,7 @@
       { id: 'req-15', name: '生物化學實驗', credit: 2, grade: '大二' },
       { id: 'req-16', name: '寄生蟲學丙', credit: 3, grade: '大二' },
       { id: 'req-17', name: '微生物學免疫學及實驗', credit: 5, grade: '大二' },
+      // 大三
       { id: 'req-18', name: '病理學', credit: 2, grade: '大三' },
       { id: 'req-19', name: '生物統計學', credit: 3, grade: '大三' },
       { id: 'req-20', name: '儀器分析', credit: 1, grade: '大三' },
@@ -385,6 +396,7 @@
       { id: 'req-35', name: '血液學實驗(下)', credit: 1, grade: '大三' },
       { id: 'req-36', name: '組織及病理切片技術實驗', credit: 2, grade: '大三' },
       { id: 'req-37', name: '醫學分子檢驗學上', credit: 1, grade: '大三' },
+      // 大四
       { id: 'req-38', name: '臨床鏡檢學實習', credit: 3, grade: '大四' },
       { id: 'req-39', name: '臨床生理學實習', credit: 2, grade: '大四' },
       { id: 'req-40', name: '臨床生化學實習', credit: 3, grade: '大四' },
@@ -417,7 +429,7 @@
     };
 
     function init() {
-      const localData = localStorage.getItem('ntu_mlsb_v6_data');
+      const localData = localStorage.getItem('ntu_mlsb_v7_data');
       if (localData) {
         state = JSON.parse(localData);
       }
@@ -461,7 +473,7 @@
 
     function handleLogin() {
       if (!auth) {
-        alert("正在載入驗證設定，請稍後重試。");
+        alert("提示：如需跨裝置雲端同步，請在 HTML 中設定你的 Firebase Config。目前資料已保存在本機中！");
         return;
       }
       const provider = new firebase.auth.GoogleAuthProvider();
@@ -473,7 +485,7 @@
     }
 
     function saveData() {
-      localStorage.setItem('ntu_mlsb_v6_data', JSON.stringify(state));
+      localStorage.setItem('ntu_mlsb_v7_data', JSON.stringify(state));
       if (currentUser && db) {
         db.collection('users').doc(currentUser.uid).set(state);
       }
@@ -538,17 +550,32 @@
     }
 
     function renderAll() {
+      // 1. 必修學分 (排除體育與服務)
       const earnedReqCredits = requiredCoursesList
-        .filter(c => state.completedReqIds.includes(c.id))
+        .filter(c => state.completedReqIds.includes(c.id) && !c.isPE && !c.isService)
         .reduce((sum, c) => sum + Number(c.credit), 0);
 
-      const raw = { chinese: 0, english: 0, genEdu: 0, genEduNoStarExcessable: 0, ele: 0, pe: 0 };
+      // 體育與服務統計
+      const checkedPECredits = requiredCoursesList
+        .filter(c => state.completedReqIds.includes(c.id) && c.isPE)
+        .reduce((sum, c) => sum + Number(c.credit), 0);
+
+      const checkedServiceCount = requiredCoursesList
+        .filter(c => state.completedReqIds.includes(c.id) && c.isService)
+        .length;
+
+      // 2. 歷年紀錄累加
+      const raw = { chinese: 0, english: 0, genEdu: 0, genEduNoStarExcessable: 0, ele: 0, loggedPE: 0 };
       const takenDomainsSet = new Set();
 
       state.semesterLogs.forEach(sem => {
         sem.courses.forEach(c => {
           const cred = Number(c.credit);
-          raw[c.category] = (raw[c.category] || 0) + cred;
+          if (c.category === 'pe') {
+            raw.loggedPE += cred;
+          } else {
+            raw[c.category] = (raw[c.category] || 0) + cred;
+          }
           
           if (c.category === 'genEdu') {
             if (c.domains && Array.isArray(c.domains)) {
@@ -568,6 +595,7 @@
       document.getElementById('raw-ge').textContent = raw.genEdu;
       document.getElementById('raw-domains').textContent = takenDesignatedDomains.length > 0 ? takenDesignatedDomains.join(', ') : '無';
 
+      // 計算 修法 (1)
       const p1_cn = Math.min(raw.chinese, 6);
       const p1_en = Math.min(raw.english, 6);
       const p1_ge = Math.min(raw.genEdu, 12);
@@ -580,6 +608,7 @@
       const p1_excess = cn_excess1 + en_excess1 + ge_valid_excess1;
       const p1_domain_ok = takenDesignatedDomains.length >= 2;
 
+      // 計算 修法 (2)
       const p2_cn = Math.min(raw.chinese, 3);
       const p2_en = Math.min(raw.english, 6);
       const p2_ge = Math.min(raw.genEdu, 15);
@@ -629,6 +658,7 @@
       const activeCommonEarned = isPath1 ? p1_valid : p2_valid;
       const activeExcess = isPath1 ? p1_excess : p2_excess;
 
+      // 畢業總學分 (不含體育與服務)
       const totalEarned = earnedReqCredits + activeCommonEarned + activeExcess + raw.ele;
       const totalTarget = 128;
 
@@ -652,7 +682,11 @@
       document.getElementById('cat-earned-excess').textContent = activeExcess;
       document.getElementById('cat-earned-ele').textContent = raw.ele;
 
-      document.getElementById('req-completion-count').textContent = `已完成 ${state.completedReqIds.length} / 49 科目`;
+      // 更新體育與服務卡片
+      document.getElementById('cat-earned-pe').textContent = checkedPECredits + raw.loggedPE;
+      document.getElementById('cat-earned-srv').textContent = checkedServiceCount;
+
+      document.getElementById('req-completion-count').textContent = `已完成 ${state.completedReqIds.length} / 55 科目`;
 
       renderRequiredList();
       renderSemesterLogs();
@@ -666,6 +700,22 @@
 
       reqListEl.innerHTML = filtered.map(item => {
         const isChecked = state.completedReqIds.includes(item.id);
+        
+        // 標籤顏色與提示
+        let badgeStyle = 'bg-slate-200 text-slate-600';
+        let badgeText = item.grade;
+
+        if (item.isPE) {
+          badgeStyle = 'bg-blue-100 text-blue-700 font-semibold';
+          badgeText = '體育 (不計學分)';
+        } else if (item.isService) {
+          badgeStyle = 'bg-emerald-100 text-emerald-700 font-semibold';
+          badgeText = '服務 (0學分)';
+        } else if (isChecked) {
+          badgeStyle = 'bg-emerald-100 text-emerald-700 font-semibold';
+          badgeText = item.grade;
+        }
+
         return `
           <label class="flex justify-between items-center p-2.5 rounded-lg border text-xs sm:text-sm cursor-pointer transition select-none ${isChecked ? 'bg-emerald-50/80 border-emerald-200' : 'bg-slate-50 border-slate-200 hover:bg-slate-100'}">
             <div class="flex items-center gap-2.5">
@@ -673,8 +723,8 @@
               <span class="font-medium ${isChecked ? 'line-through text-slate-500' : 'text-slate-800'}">${item.name}</span>
               <span class="text-xs text-slate-400">(${item.credit}學分)</span>
             </div>
-            <span class="text-xs px-2 py-0.5 rounded ${isChecked ? 'bg-emerald-100 text-emerald-700 font-semibold' : 'bg-slate-200 text-slate-600'}">
-              ${item.grade}
+            <span class="text-xs px-2 py-0.5 rounded ${badgeStyle}">
+              ${badgeText}
             </span>
           </label>
         `;
