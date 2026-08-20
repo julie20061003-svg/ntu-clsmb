@@ -21,7 +21,7 @@
           114 學年度入學學生適用
         </div>
         <h1 class="text-2xl font-bold text-slate-900">國立臺灣大學 醫學檢驗暨生物技術學學系</h1>
-        <p class="text-slate-500 text-sm mt-0.5">畢業學分門檻、系必修勾選與體育/服務課追蹤</p>
+        <p class="text-slate-500 text-sm mt-0.5">畢業學分門檻追蹤</p>
       </div>
 
       <!-- Google 帳號控制區 -->
