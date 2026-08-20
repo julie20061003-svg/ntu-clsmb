@@ -322,7 +322,7 @@
 
   <script>
     // ⚠️ 請將下方引號內替換為你 Apps Script 部署獲得的網頁應用程式 URL
-    const GOOGLE_SHEET_SCRIPT_URL = "[https://script.google.com/macros/s/你的部署ID/exec](https://script.google.com/macros/s/AKfycbzVhW4CkdO3G-Mg_QdpQVvyg2b2O6AV5k9784BriTx4OnH2vj982s7jFobvqRTzon-IuA/exec)";
+    const GOOGLE_SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzVhW4CkdO3G-Mg_QdpQVvyg2b2O6AV5k9784BriTx4OnH2vj982s7jFobvqRTzon-IuA/exec";
 
     const requiredCoursesList = [
       { id: 'req-srv1', name: '服務學習甲', credit: 0, grade: '大一', isService: true },
